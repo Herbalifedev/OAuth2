@@ -124,7 +124,14 @@ namespace OAuth2.Client
         /// <param name="parameters">Callback request payload (parameters).</param>
         public string GetToken(NameValueCollection parameters)
         {
-            GrantType = "authorization_code";
+            if (parameters != null && parameters["grant_type"] != null)
+            {
+                GrantType = parameters["grant_type"];
+            }
+            else
+            {
+                GrantType = "authorization_code";
+            }
             CheckErrorAndSetState(parameters);
             QueryAccessToken(parameters);
             return AccessToken;

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E23DBEA2-1B78-4E8C-AFFD-EF140DA3C64D}"
 	ProjectSection(SolutionItems) = preProject
@@ -23,6 +23,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Example", "OAuth2.Example\OAuth2.Example.csproj", "{A976EB30-6BC2-4625-A894-02C1B743E502}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Example.AcceptanceTests", "OAuth2.Example.AcceptanceTests\OAuth2.Example.AcceptanceTests.csproj", "{61EE9F12-9068-419F-A242-4FAF515585D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Console", "OAuth2.Console\OAuth2.Console.csproj", "{8C081ED2-F01A-4AF5-A6A1-879C3F4EC48E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +48,10 @@ Global
 		{61EE9F12-9068-419F-A242-4FAF515585D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61EE9F12-9068-419F-A242-4FAF515585D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61EE9F12-9068-419F-A242-4FAF515585D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C081ED2-F01A-4AF5-A6A1-879C3F4EC48E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C081ED2-F01A-4AF5-A6A1-879C3F4EC48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C081ED2-F01A-4AF5-A6A1-879C3F4EC48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C081ED2-F01A-4AF5-A6A1-879C3F4EC48E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
