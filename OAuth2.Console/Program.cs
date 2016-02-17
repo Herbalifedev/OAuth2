@@ -9,12 +9,15 @@ namespace OAuth2.Console
 {
     class Program
     {
+        static string token = null;
+
         static void Main(string[] args)
         {
             try
             {
                 var p = new Program();
-                var token = p.TestGetToken();
+                token = p.TestGetToken();
+                p.TestRegisterDevice();
             }
             catch (Exception ex)
             {
@@ -28,19 +31,34 @@ namespace OAuth2.Console
         {
             var authorizationRoot = new AuthorizationRoot();
 
-            var client = (Client.OAuth2Client) authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
+            var client = (Client.Impl.MpnsClient) authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
             NameValueCollection queryParams = new NameValueCollection();
             queryParams["code"] = "code";
             queryParams["grant_type"] = "client_credentials";
-            var token = client.GetToken(queryParams);
+            var accessToken = client.GetToken(queryParams);
 
             DateTime now = DateTime.Now;
 
             System.Console.WriteLine("TestGetToken");
-            System.Console.WriteLine("Token: " + token);
+            System.Console.WriteLine("Token: " + accessToken);
             System.Console.WriteLine(string.Format("Time now: {0}, Expires at: {1}, Expiring in {2} second(s)", now, client.ExpiresAt, (client.ExpiresAt - now).TotalSeconds));
 
-            return token;
+            return accessToken;
+        }
+
+        public void TestRegisterDevice()
+        {
+            var authorizationRoot = new AuthorizationRoot();
+
+            var client = (Client.Impl.MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
+            NameValueCollection queryParams = new NameValueCollection();
+            queryParams["code"] = "code";
+            queryParams["access_token"] = token;
+            queryParams["username"] = "mpns1";
+            queryParams["id"] = "token1";
+            queryParams["msg_service"] = "apns";
+            var results = client.RegisterDevice(queryParams);
+            System.Console.WriteLine(string.Format("TestRegisterDevice::Response : {0}", results));
         }
     }
 }

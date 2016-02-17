@@ -21,7 +21,7 @@ namespace OAuth2.Client
         private const string ExpiresKey = "expires_in";
         private const string TokenTypeKey = "token_type";
 
-        private readonly IRequestFactory _factory;
+        protected readonly IRequestFactory _factory;
 
         /// <summary>
         /// Client configuration object.

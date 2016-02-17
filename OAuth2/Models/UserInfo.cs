@@ -78,5 +78,31 @@ namespace OAuth2.Models
         /// </summary>
         public AvatarInfo AvatarUri { get; private set; }
     }
+
+    public class RegisterDeviceRequestInfo
+    {
+        public string access_token;
+        public Data data;
+
+        public RegisterDeviceRequestInfo(string _access_token, string _username, string _id, string _msg_service)
+        {
+            access_token = _access_token;
+            data = new Data(_username, _id, _msg_service);
+        }
+
+        public class Data
+        {
+            public string username;
+            public string id;
+            public string msg_service;
+
+            public Data(string _username, string _id, string _msg_service)
+            {
+                username = _username;
+                id = _id;
+                msg_service = _msg_service;
+            }
+        }
+    }
 }
 
