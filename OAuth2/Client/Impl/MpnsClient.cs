@@ -34,8 +34,8 @@ namespace OAuth2.Client.Impl
             {
                 return new Endpoint
                 {
-                    BaseUri = "http://mykl-dts-mac04:3000",
-                    Resource = "/wlc/token"
+                    BaseUri = System.Configuration.ConfigurationManager.AppSettings["MpnsBaseURI"],
+                    Resource = "/mpns/token"
                 };
             }
         }
