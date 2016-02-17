@@ -14,7 +14,7 @@ namespace OAuth2.Console
             try
             {
                 var p = new Program();
-                p.TestLogin();
+                var token = p.TestGetToken();
             }
             catch (Exception ex)
             {
@@ -24,18 +24,23 @@ namespace OAuth2.Console
             System.Console.ReadKey();
         }
 
-        public void TestLogin()
+        public string TestGetToken()
         {
             var authorizationRoot = new AuthorizationRoot();
 
-            var client = (Client.OAuth2Client) authorizationRoot.Clients.First();
+            var client = (Client.OAuth2Client) authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
             NameValueCollection queryParams = new NameValueCollection();
             queryParams["code"] = "code";
             queryParams["grant_type"] = "client_credentials";
             var token = client.GetToken(queryParams);
 
+            DateTime now = DateTime.Now;
+
+            System.Console.WriteLine("TestGetToken");
             System.Console.WriteLine("Token: " + token);
-            System.Console.WriteLine("Expires at: " + client.ExpiresAt);
+            System.Console.WriteLine(string.Format("Time now: {0}, Expires at: {1}, Expiring in {2} second(s)", now, client.ExpiresAt, (client.ExpiresAt - now).TotalSeconds));
+
+            return token;
         }
     }
 }
