@@ -104,5 +104,41 @@ namespace OAuth2.Models
             }
         }
     }
+
+    public class DeregisterDeviceRequestInfo
+    {
+        public string access_token;
+        public Data data;
+
+        public DeregisterDeviceRequestInfo(string _access_token, string _username, string _id, string _msg_service)
+        {
+            access_token = _access_token;
+            data = new Data(_username, _id, _msg_service);
+        }
+
+        public class Data
+        {
+            public string username;
+            public Device device;
+
+            public Data(string _username, string _id, string _msg_service)
+            {
+                username = _username;
+                device = new Device(_id, _msg_service);
+            }
+
+            public class Device
+            {
+                public string id;
+                public string msg_service;
+
+                public Device(string _id, string _msg_service)
+                {
+                    id = _id;
+                    msg_service = _msg_service;
+                }
+            }
+        }
+    }
 }
 

@@ -42,9 +42,10 @@ namespace OAuth2.Client.Impl
             return string.Format("{0}, {1}", response.StatusCode, response.Content);
         }
 
-        public bool DeregisterDevice(NameValueCollection parameters)
+        public string DeregisterDevice(NameValueCollection parameters)
         {
-            throw new NotImplementedException();
+            var response = QueryDeregisterDevice(parameters);
+            return string.Format("{0}, {1}", response.StatusCode, response.Content);
         }
 
         private Endpoint RegisterDeviceEndpoint
@@ -70,7 +71,24 @@ namespace OAuth2.Client.Impl
             ));
             request.AddParameter("application/json", para, ParameterType.RequestBody);
 
-            var response = client.ExecuteAndVerify(request);
+            var response = client.ExecuteAndVerifyRegisterEndpoint(request);
+            return response;
+        }
+
+        private IRestResponse QueryDeregisterDevice(NameValueCollection parameters)
+        {
+            var client = _factory.CreateClient(DeregisterDeviceEndpoint);
+            var request = _factory.CreateRequest(DeregisterDeviceEndpoint, Method.POST);
+
+            var para = SimpleJson.SerializeObject(new DeregisterDeviceRequestInfo(
+                parameters.Get("access_token"),
+                parameters.Get("username"),
+                parameters.Get("id"),
+                parameters.Get("msg_service")
+            ));
+            request.AddParameter("application/json", para, ParameterType.RequestBody);
+
+            var response = client.ExecuteAndVerifyDeregisterEndpoint(request);
             return response;
         }
 
