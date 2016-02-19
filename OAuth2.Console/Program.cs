@@ -18,6 +18,7 @@ namespace OAuth2.Console
                 var p = new Program();
                 token = p.TestGetToken();
                 p.TestRegisterDevice();
+                p.TestCreateNotification();
                 p.TestDeregisterDevice();
             }
             catch (Exception ex)
@@ -74,6 +75,21 @@ namespace OAuth2.Console
             queryParams["id"] = "token1";
             queryParams["msg_service"] = "apns";
             var results = client.DeregisterDevice(queryParams);
+            System.Console.WriteLine(string.Format("TestDeregisterDevice::Response : {0}", results));
+        }
+
+        public void TestCreateNotification()
+        {
+            var authorizationRoot = new AuthorizationRoot();
+
+            var client = (Client.Impl.MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
+            NameValueCollection queryParams = new NameValueCollection();
+            queryParams["code"] = "code";
+            queryParams["access_token"] = token;
+            queryParams["username"] = "mpns1";
+            queryParams["notification_type"] = "SetReminderNotification";
+            queryParams["contact"] = "Win10x64DotNetDev";
+            var results = client.CreateNotification(queryParams);
             System.Console.WriteLine(string.Format("TestDeregisterDevice::Response : {0}", results));
         }
     }

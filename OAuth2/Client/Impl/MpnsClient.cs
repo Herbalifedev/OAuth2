@@ -36,6 +36,8 @@ namespace OAuth2.Client.Impl
             }
         }
 
+        #region API
+
         public string RegisterDevice(NameValueCollection parameters)
         {
             var response = QueryRegisterDevice(parameters);
@@ -48,6 +50,18 @@ namespace OAuth2.Client.Impl
             return string.Format("{0}, {1}", response.StatusCode, response.Content);
         }
 
+        public string CreateNotification(NameValueCollection parameters)
+        {
+            var response = QueryCreateNotification(parameters);
+            return string.Format("{0}, {1}", response.StatusCode, response.Content);
+        }
+
+        #endregion
+
+        #region Private methods
+
+        #region Endpoints
+
         private Endpoint RegisterDeviceEndpoint
         {
             get { return new Endpoint { BaseUri = BaseURI, Resource = "/mpns/devices/register" }; }
@@ -57,6 +71,15 @@ namespace OAuth2.Client.Impl
         {
             get { return new Endpoint { BaseUri = BaseURI, Resource = "/mpns/devices/deregister" }; }
         }
+
+        private Endpoint CreateNotificationEndpoint
+        {
+            get { return new Endpoint { BaseUri = BaseURI, Resource = "/mpns/notifications" }; }
+        }
+
+        #endregion
+
+        #region API queries
 
         private IRestResponse QueryRegisterDevice(NameValueCollection parameters)
         {
@@ -91,6 +114,27 @@ namespace OAuth2.Client.Impl
             var response = client.ExecuteAndVerifyDeregisterEndpoint(request);
             return response;
         }
+
+        private IRestResponse QueryCreateNotification(NameValueCollection parameters)
+        {
+            var client = _factory.CreateClient(CreateNotificationEndpoint);
+            var request = _factory.CreateRequest(CreateNotificationEndpoint, Method.POST);
+
+            var para = SimpleJson.SerializeObject(new CreateNotificationRequestInfo(
+                parameters.Get("access_token"),
+                parameters.Get("notification_type"),
+                parameters.Get("username"),
+                parameters.Get("contact")
+            ));
+            request.AddParameter("application/json", para, ParameterType.RequestBody);
+
+            var response = client.ExecuteAndVerifyCreateNotificationEndpoint(request);
+            return response;
+        }
+
+        #endregion
+
+        #endregion
 
         #endregion
 

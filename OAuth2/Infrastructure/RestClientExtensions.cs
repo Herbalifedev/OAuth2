@@ -38,5 +38,16 @@ namespace OAuth2.Infrastructure
             }
             return response;
         }
+
+        public static IRestResponse ExecuteAndVerifyCreateNotificationEndpoint(this IRestClient client, IRestRequest request)
+        {
+            var response = client.Execute(request);
+            if (response.Content.IsEmpty() ||
+                response.StatusCode != HttpStatusCode.Created)
+            {
+                throw new UnexpectedResponseException(response);
+            }
+            return response;
+        }
     }
 }

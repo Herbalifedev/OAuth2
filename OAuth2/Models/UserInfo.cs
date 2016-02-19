@@ -140,5 +140,31 @@ namespace OAuth2.Models
             }
         }
     }
+
+    public class CreateNotificationRequestInfo
+    {
+        public string access_token;
+        public Data data;
+
+        public CreateNotificationRequestInfo(string _access_token, string _notification_type, string _username, string _contact)
+        {
+            access_token = _access_token;
+            data = new Data(_notification_type, _username, _contact);
+        }
+
+        public class Data
+        {
+            public string _type;
+            public string username;
+            public string contact;
+
+            public Data(string __type, string _username, string _contact)
+            {
+                _type = __type;
+                username = _username;
+                contact = _contact;
+            }
+        }
+    }
 }
 
