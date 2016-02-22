@@ -1,6 +1,6 @@
 using System.Configuration;
 
-namespace OAuth2.Configuration
+namespace HL.OAuth2.Configuration
 {
     /// <summary>
     /// Library configuration section handler.

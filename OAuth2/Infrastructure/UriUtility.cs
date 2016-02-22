@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace OAuth2.Infrastructure
+namespace HL.OAuth2.Infrastructure
 {
     public static class UriUtility
     {

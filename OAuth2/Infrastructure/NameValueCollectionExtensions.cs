@@ -1,7 +1,7 @@
 ﻿using System.Collections.Specialized;
-using OAuth2.Client;
+using HL.OAuth2.Client;
 
-namespace OAuth2.Infrastructure
+namespace HL.OAuth2.Infrastructure
 {
     public static class NameValueCollectionExtensions
     {

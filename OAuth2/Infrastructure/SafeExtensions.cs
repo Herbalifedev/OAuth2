@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OAuth2.Infrastructure
+namespace HL.OAuth2.Infrastructure
 {
     /// <summary>
     /// Set of extension methods for safe operation on nullable types.

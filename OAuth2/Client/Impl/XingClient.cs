@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using OAuth2.Configuration;
-using OAuth2.Infrastructure;
-using OAuth2.Models;
+using HL.OAuth2.Configuration;
+using HL.OAuth2.Infrastructure;
+using HL.OAuth2.Models;
 
-namespace OAuth2.Client.Impl
+namespace HL.OAuth2.Client.Impl
 {
     /// <summary>
     /// Xing authentication client.

@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace OAuth2.Example.AcceptanceTests.Scenarios
+namespace HL.OAuth2.Example.AcceptanceTests.Scenarios
 {
     using TechTalk.SpecFlow;
     

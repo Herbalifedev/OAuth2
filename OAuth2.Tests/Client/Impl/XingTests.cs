@@ -1,14 +1,14 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
-using OAuth2.Client;
-using OAuth2.Client.Impl;
-using OAuth2.Configuration;
-using OAuth2.Infrastructure;
-using OAuth2.Models;
+using HL.OAuth2.Client;
+using HL.OAuth2.Client.Impl;
+using HL.OAuth2.Configuration;
+using HL.OAuth2.Infrastructure;
+using HL.OAuth2.Models;
 using RestSharp;
 using FluentAssertions;
 
-namespace OAuth2.Tests.Client.Impl
+namespace HL.OAuth2.Tests.Client.Impl
 {
 
     [TestFixture]

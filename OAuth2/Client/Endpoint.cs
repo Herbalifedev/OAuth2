@@ -1,4 +1,4 @@
-namespace OAuth2.Client
+namespace HL.OAuth2.Client
 {
     /// <summary>
     /// Defines endpoint URI (service address).

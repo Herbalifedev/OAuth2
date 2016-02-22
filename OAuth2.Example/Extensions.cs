@@ -1,4 +1,4 @@
-﻿namespace OAuth2.Example
+﻿namespace HL.OAuth2.Example
 {
     /// <summary>
     /// Several extension methods used in this example app.

@@ -1,4 +1,4 @@
-namespace OAuth2.Models
+namespace HL.OAuth2.Models
 {
     public class AvatarInfo
     {

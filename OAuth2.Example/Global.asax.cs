@@ -4,11 +4,12 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Core;
 using Autofac.Integration.Mvc;
-using OAuth2.Client;
-using OAuth2.Configuration;
+using HL.OAuth2;
+using HL.OAuth2.Client;
+using HL.OAuth2.Configuration;
 using RestSharp;
 
-namespace OAuth2.Example
+namespace HL.OAuth2.Example
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -68,7 +69,7 @@ namespace OAuth2.Example
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModelBinders(Assembly.GetExecutingAssembly());
+            //builder.RegisterModelBinders(Assembly.GetExecutingAssembly());
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
             builder

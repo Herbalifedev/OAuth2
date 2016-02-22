@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace OAuth2.Infrastructure
+namespace HL.OAuth2.Infrastructure
 {
     /// <summary>
     /// Set of extension methods for <see cref="string"/>.

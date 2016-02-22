@@ -1,6 +1,6 @@
 using RestSharp;
 
-namespace OAuth2.Infrastructure
+namespace HL.OAuth2.Infrastructure
 {
     /// <summary>
     /// Default implementation of <see cref="IRequestFactory"/>.

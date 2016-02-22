@@ -16,15 +16,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2", "OAuth2\OAuth2.csproj", "{C95637CD-25E5-483E-9C74-89FE3ADB999B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL.OAuth2", "OAuth2\HL.OAuth2.csproj", "{C95637CD-25E5-483E-9C74-89FE3ADB999B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Tests", "OAuth2.Tests\OAuth2.Tests.csproj", "{0DA9F405-2F79-4F37-AB44-4FE54CB661F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL.OAuth2.Tests", "OAuth2.Tests\HL.OAuth2.Tests.csproj", "{0DA9F405-2F79-4F37-AB44-4FE54CB661F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Example", "OAuth2.Example\OAuth2.Example.csproj", "{A976EB30-6BC2-4625-A894-02C1B743E502}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL.OAuth2.Example", "OAuth2.Example\HL.OAuth2.Example.csproj", "{A976EB30-6BC2-4625-A894-02C1B743E502}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Example.AcceptanceTests", "OAuth2.Example.AcceptanceTests\OAuth2.Example.AcceptanceTests.csproj", "{61EE9F12-9068-419F-A242-4FAF515585D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL.OAuth2.Example.AcceptanceTests", "OAuth2.Example.AcceptanceTests\HL.OAuth2.Example.AcceptanceTests.csproj", "{61EE9F12-9068-419F-A242-4FAF515585D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Console", "OAuth2.Console\OAuth2.Console.csproj", "{8C081ED2-F01A-4AF5-A6A1-879C3F4EC48E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL.OAuth2.Console", "OAuth2.Console\HL.OAuth2.Console.csproj", "{8C081ED2-F01A-4AF5-A6A1-879C3F4EC48E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

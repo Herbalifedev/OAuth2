@@ -4,15 +4,15 @@ using System.Net;
 using FizzWare.NBuilder;
 using NSubstitute;
 using NUnit.Framework;
-using OAuth2.Client;
-using OAuth2.Configuration;
-using OAuth2.Infrastructure;
-using OAuth2.Models;
+using HL.OAuth2.Client;
+using HL.OAuth2.Configuration;
+using HL.OAuth2.Infrastructure;
+using HL.OAuth2.Models;
 using RestSharp;
 using FluentAssertions;
 using RestSharp.Authenticators;
 
-namespace OAuth2.Tests.Client
+namespace HL.OAuth2.Tests.Client
 {
     [TestFixture]
     public class OAuthClientTests

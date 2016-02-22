@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
-using OAuth2.Client;
+using HL.OAuth2.Client;
 using FluentAssertions;
 
-namespace OAuth2.Tests.Client
+namespace HL.OAuth2.Tests.Client
 {
     [TestFixture]
     public class EndpointTests

@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
-using OAuth2.Configuration;
+using HL.OAuth2.Configuration;
 using FluentAssertions;
 
-namespace OAuth2.Tests.Infrastructure
+namespace HL.OAuth2.Tests.Infrastructure
 {
     [TestFixture]
     public class ConfigurationManagerTests

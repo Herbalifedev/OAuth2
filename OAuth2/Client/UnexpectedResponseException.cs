@@ -1,7 +1,7 @@
 using System;
 using RestSharp;
 
-namespace OAuth2.Client
+namespace HL.OAuth2.Client
 {
     /// <summary>
     /// Indicates unexpected response from service.

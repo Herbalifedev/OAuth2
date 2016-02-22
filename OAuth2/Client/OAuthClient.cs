@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Specialized;
-using OAuth2.Configuration;
-using OAuth2.Infrastructure;
-using OAuth2.Models;
+using HL.OAuth2.Configuration;
+using HL.OAuth2.Infrastructure;
+using HL.OAuth2.Models;
 using RestSharp;
 using RestSharp.Authenticators;
 using RestSharp.Extensions.MonoHttp;
 
-namespace OAuth2.Client
+namespace HL.OAuth2.Client
 {
     /// <summary>
     /// Base class for OAuth (version 1) client implementation.

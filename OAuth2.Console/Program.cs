@@ -4,8 +4,11 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HL.OAuth2;
+using HL.OAuth2.Client;
+using HL.OAuth2.Client.Impl;
 
-namespace OAuth2.Console
+namespace HL.OAuth2.Console
 {
     class Program
     {
@@ -33,7 +36,7 @@ namespace OAuth2.Console
         {
             var authorizationRoot = new AuthorizationRoot();
 
-            var client = (Client.Impl.MpnsClient) authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
+            var client = (MpnsClient) authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
             NameValueCollection queryParams = new NameValueCollection();
             queryParams["code"] = "code";
             queryParams["grant_type"] = "client_credentials";
@@ -52,7 +55,7 @@ namespace OAuth2.Console
         {
             var authorizationRoot = new AuthorizationRoot();
 
-            var client = (Client.Impl.MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
+            var client = (MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
             NameValueCollection queryParams = new NameValueCollection();
             queryParams["code"] = "code";
             queryParams["access_token"] = token;
@@ -67,7 +70,7 @@ namespace OAuth2.Console
         {
             var authorizationRoot = new AuthorizationRoot();
 
-            var client = (Client.Impl.MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
+            var client = (MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
             NameValueCollection queryParams = new NameValueCollection();
             queryParams["code"] = "code";
             queryParams["access_token"] = token;
@@ -82,7 +85,7 @@ namespace OAuth2.Console
         {
             var authorizationRoot = new AuthorizationRoot();
 
-            var client = (Client.Impl.MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
+            var client = (MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
             NameValueCollection queryParams = new NameValueCollection();
             queryParams["code"] = "code";
             queryParams["access_token"] = token;

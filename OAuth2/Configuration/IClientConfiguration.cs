@@ -1,4 +1,4 @@
-namespace OAuth2.Configuration
+namespace HL.OAuth2.Configuration
 {
     /// <summary>
     /// Configuration of third-party authentication service client.

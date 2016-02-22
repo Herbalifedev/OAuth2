@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using OAuth2.Client;
-using OAuth2.Configuration;
-using OAuth2.Infrastructure;
+using HL.OAuth2.Client;
+using HL.OAuth2.Configuration;
+using HL.OAuth2.Infrastructure;
 using System.Linq;
 
-namespace OAuth2
+namespace HL.OAuth2
 {
     public class AuthorizationRoot
     {

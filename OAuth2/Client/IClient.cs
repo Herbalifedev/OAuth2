@@ -1,8 +1,8 @@
 using System.Collections.Specialized;
-using OAuth2.Configuration;
-using OAuth2.Models;
+using HL.OAuth2.Configuration;
+using HL.OAuth2.Models;
 
-namespace OAuth2.Client
+namespace HL.OAuth2.Client
 {
     /// <summary>
     /// Defines API for doing user authentication using certain third-party service.

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OAuth2.Example.Models
+namespace HL.OAuth2.Example.Models
 {
     /// <summary>
     /// View model for index page (view).

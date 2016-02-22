@@ -1,8 +1,8 @@
 using System.Collections.Specialized;
-using OAuth2.Configuration;
+using HL.OAuth2.Configuration;
 using RestSharp;
 
-namespace OAuth2.Client
+namespace HL.OAuth2.Client
 {
     public class BeforeAfterRequestArgs
     {

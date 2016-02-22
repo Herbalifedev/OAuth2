@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 
-namespace OAuth2.Configuration
+namespace HL.OAuth2.Configuration
 {
     /// <summary>
     /// Service settings collection.

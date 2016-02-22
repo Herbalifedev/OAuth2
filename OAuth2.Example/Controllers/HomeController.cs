@@ -1,9 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using OAuth2.Client;
-using OAuth2.Example.Models;
+using HL.OAuth2.Client;
+using HL.OAuth2;
+using HL.OAuth2.Example.Models;
 
-namespace OAuth2.Example.Controllers
+namespace HL.OAuth2.Example.Controllers
 {
     /// <summary>
     /// The only controller in this example app.

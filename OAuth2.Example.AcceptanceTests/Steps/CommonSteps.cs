@@ -3,7 +3,7 @@ using FluentAssertions;
 using TechTalk.SpecFlow;
 using WatiN.Core;
 
-namespace OAuth2.Example.AcceptanceTests.Steps
+namespace HL.OAuth2.Example.AcceptanceTests.Steps
 {
     [Binding]
     public class CommonSteps

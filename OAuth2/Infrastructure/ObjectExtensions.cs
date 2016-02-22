@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace OAuth2.Infrastructure
+namespace HL.OAuth2.Infrastructure
 {
     /// <summary>
     /// Common extensions.

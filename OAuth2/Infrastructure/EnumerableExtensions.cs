@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace OAuth2.Infrastructure
+namespace HL.OAuth2.Infrastructure
 {
     /// <summary>
     /// Extension methods for <see cref="IEnumerable{T}"/>.

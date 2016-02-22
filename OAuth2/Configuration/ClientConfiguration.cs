@@ -1,7 +1,7 @@
 using System.Configuration;
-using OAuth2.Infrastructure;
+using HL.OAuth2.Infrastructure;
 
-namespace OAuth2.Configuration
+namespace HL.OAuth2.Configuration
 {
     /// <summary>
     /// Contains settings for service client.

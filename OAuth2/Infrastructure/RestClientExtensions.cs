@@ -1,8 +1,8 @@
 ﻿using System.Net;
-using OAuth2.Client;
+using HL.OAuth2.Client;
 using RestSharp;
 
-namespace OAuth2.Infrastructure
+namespace HL.OAuth2.Infrastructure
 {
     public static class RestClientExtensions
     {

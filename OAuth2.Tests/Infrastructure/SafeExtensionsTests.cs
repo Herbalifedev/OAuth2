@@ -1,10 +1,10 @@
 ﻿using System;
 using NUnit.Framework;
-using OAuth2.Client;
-using OAuth2.Infrastructure;
+using HL.OAuth2.Client;
+using HL.OAuth2.Infrastructure;
 using FluentAssertions;
 
-namespace OAuth2.Tests.Infrastructure
+namespace HL.OAuth2.Tests.Infrastructure
 {
     [TestFixture]
     public class SafeExtensionsTests
