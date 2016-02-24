@@ -146,23 +146,25 @@ namespace HL.OAuth2.Models
         public string access_token;
         public Data data;
 
-        public CreateNotificationRequestInfo(string _access_token, string _notification_type, string _username, string _contact)
+        public CreateNotificationRequestInfo(string _access_token, string _notification_type, string _username, string _notifiable_type, string _notifiable_id)
         {
             access_token = _access_token;
-            data = new Data(_notification_type, _username, _contact);
+            data = new Data(_notification_type, _username, _notifiable_type, _notifiable_id);
         }
 
         public class Data
         {
             public string _type;
             public string username;
-            public string contact;
+            public string notifiable_id;
+            public string notifiable_type;
 
-            public Data(string __type, string _username, string _contact)
+            public Data(string __type, string _username, string _notifiable_type, string _notifiable_id)
             {
                 _type = __type;
                 username = _username;
-                contact = _contact;
+                notifiable_id = _notifiable_id;
+                notifiable_type = _notifiable_type;
             }
         }
     }

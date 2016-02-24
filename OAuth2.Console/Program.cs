@@ -91,7 +91,8 @@ namespace HL.OAuth2.Console
             queryParams["access_token"] = token;
             queryParams["username"] = "mpns1";
             queryParams["notification_type"] = "SetReminderNotification";
-            queryParams["contact"] = "Win10x64DotNetDev";
+            queryParams["notifiable_type"] = "Win10x64DotNetDev";
+            queryParams["notifiable_id"] = "12345";
             var results = client.CreateNotification(queryParams);
             System.Console.WriteLine(string.Format("TestDeregisterDevice::Response : {0}", results));
         }

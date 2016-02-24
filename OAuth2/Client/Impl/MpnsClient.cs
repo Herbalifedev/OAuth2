@@ -124,7 +124,8 @@ namespace HL.OAuth2.Client.Impl
                 parameters.Get("access_token"),
                 parameters.Get("notification_type"),
                 parameters.Get("username"),
-                parameters.Get("contact")
+                parameters.Get("notifiable_type"),
+                parameters.Get("notifiable_id")
             ));
             request.AddParameter("application/json", para, ParameterType.RequestBody);
 
