@@ -168,5 +168,35 @@ namespace HL.OAuth2.Models
             }
         }
     }
+
+    public class PushNotificationRequestInfo
+    {
+        public string access_token;
+        public Data data;
+
+        public PushNotificationRequestInfo(string _access_token, string _username, string _url, string _message, string _notification_id, string _badge)
+        {
+            access_token = _access_token;
+            data = new Data(_username, _url, _message, _notification_id, _badge);
+        }
+
+        public class Data
+        {
+            public string username;
+            public string url;
+            public string message;
+            public string n10n_id;
+            public string badge;
+
+            public Data(string _username, string _url, string _message, string _notification_id, string _badge)
+            {
+                username = _username;
+                url = _url;
+                message = _message;
+                n10n_id = _notification_id;
+                badge = _badge;
+            }
+        }
+    }
 }
 

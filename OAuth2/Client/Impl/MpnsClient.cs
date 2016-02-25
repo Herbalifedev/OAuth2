@@ -21,6 +21,7 @@ namespace HL.OAuth2.Client.Impl
         /// GET  /mpns/notifications         ## Get notifications list
         /// GET  /mpns/notifications/count   ## Get the notifications count
         /// POST /mpns/notifications         ## Create notification
+        /// POST /mpns/notifications/push    ## Push a notification directly via the PNsService
         /// POST /mpns/devices/register      ## Register mobile device
         /// POST /mpns/devices/deregister    ## Deregister mobile device
         /// </summary>
@@ -56,6 +57,12 @@ namespace HL.OAuth2.Client.Impl
             return string.Format("{0}, {1}", response.StatusCode, response.Content);
         }
 
+        public string PushNotification(NameValueCollection parameters)
+        {
+            var response = QueryPushNotification(parameters);
+            return string.Format("{0}, {1}", response.StatusCode, response.Content);
+        }
+
         #endregion
 
         #region Private methods
@@ -75,6 +82,11 @@ namespace HL.OAuth2.Client.Impl
         private Endpoint CreateNotificationEndpoint
         {
             get { return new Endpoint { BaseUri = BaseURI, Resource = "/mpns/notifications" }; }
+        }
+
+        private Endpoint PushNotificationEndpoint
+        {
+            get { return new Endpoint { BaseUri = BaseURI, Resource = "/mpns/notifications/push" }; }
         }
 
         #endregion
@@ -126,6 +138,25 @@ namespace HL.OAuth2.Client.Impl
                 parameters.Get("username"),
                 parameters.Get("notifiable_type"),
                 parameters.Get("notifiable_id")
+            ));
+            request.AddParameter("application/json", para, ParameterType.RequestBody);
+
+            var response = client.ExecuteAndVerifyCreateNotificationEndpoint(request);
+            return response;
+        }
+
+        private IRestResponse QueryPushNotification(NameValueCollection parameters)
+        {
+            var client = _factory.CreateClient(PushNotificationEndpoint);
+            var request = _factory.CreateRequest(PushNotificationEndpoint, Method.POST);
+
+            var para = SimpleJson.SerializeObject(new PushNotificationRequestInfo(
+                parameters.Get("access_token"),
+                parameters.Get("username"),
+                parameters.Get("url"),
+                parameters.Get("message"),
+                parameters.Get("notification_id"),
+                parameters.Get("badge")
             ));
             request.AddParameter("application/json", para, ParameterType.RequestBody);
 
