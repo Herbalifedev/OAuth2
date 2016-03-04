@@ -77,6 +77,7 @@
     <Compile Include="Client\Impl\WindowsLiveClient.cs" />
     <Compile Include="Client\Impl\XingClient.cs" />
     <Compile Include="Client\Impl\YandexClient.cs" />
+    <Compile Include="Client\MpnsClientManager.cs" />
     <Compile Include="Client\OAuth2Client.cs" />
     <Compile Include="Client\Endpoint.cs" />
     <Compile Include="Client\IClient.cs" />

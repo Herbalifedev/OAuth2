@@ -1,27 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HL.OAuth2;
 using HL.OAuth2.Client;
-using HL.OAuth2.Client.Impl;
 
 namespace HL.OAuth2.Console
 {
     class Program
     {
-        static string token = null;
+        //static string token = null;
 
         static void Main(string[] args)
         {
             try
             {
                 var p = new Program();
-                token = p.TestGetToken();
                 p.TestRegisterDevice();
-                p.TestCreateNotification();
+                p.TestPushNotification();
                 p.TestDeregisterDevice();
             }
             catch (Exception ex)
@@ -32,69 +24,23 @@ namespace HL.OAuth2.Console
             System.Console.ReadKey();
         }
 
-        public string TestGetToken()
-        {
-            var authorizationRoot = new AuthorizationRoot();
-
-            var client = (MpnsClient) authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
-            NameValueCollection queryParams = new NameValueCollection();
-            queryParams["code"] = "code";
-            queryParams["grant_type"] = "client_credentials";
-            var accessToken = client.GetToken(queryParams);
-
-            DateTime now = DateTime.Now;
-
-            System.Console.WriteLine("TestGetToken");
-            System.Console.WriteLine("Token: " + accessToken);
-            System.Console.WriteLine(string.Format("Time now: {0}, Expires at: {1}, Expiring in {2} second(s)", now, client.ExpiresAt, (client.ExpiresAt - now).TotalSeconds));
-
-            return accessToken;
-        }
-
         public void TestRegisterDevice()
         {
-            var authorizationRoot = new AuthorizationRoot();
-
-            var client = (MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
-            NameValueCollection queryParams = new NameValueCollection();
-            queryParams["code"] = "code";
-            queryParams["access_token"] = token;
-            queryParams["username"] = "mpns1";
-            queryParams["id"] = "token1";
-            queryParams["msg_service"] = "apns";
-            var results = client.RegisterDevice(queryParams);
-            System.Console.WriteLine(string.Format("TestRegisterDevice::Response : {0}", results));
+            MpnsClientManager.RegisterDevice("mpns1", "token1", "apns");
         }
 
         public void TestDeregisterDevice()
         {
-            var authorizationRoot = new AuthorizationRoot();
-
-            var client = (MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
-            NameValueCollection queryParams = new NameValueCollection();
-            queryParams["code"] = "code";
-            queryParams["access_token"] = token;
-            queryParams["username"] = "mpns1";
-            queryParams["id"] = "token1";
-            queryParams["msg_service"] = "apns";
-            var results = client.DeregisterDevice(queryParams);
-            System.Console.WriteLine(string.Format("TestDeregisterDevice::Response : {0}", results));
+            MpnsClientManager.DeregisterDevice("mpns1", "token1", "apns");
         }
-
-        public void TestCreateNotification()
+        
+        public void TestPushNotification()
         {
-            var authorizationRoot = new AuthorizationRoot();
-
-            var client = (MpnsClient)authorizationRoot.Clients.Where(klient => klient.Name.Equals("MPNS")).First();
-            NameValueCollection queryParams = new NameValueCollection();
-            queryParams["code"] = "code";
-            queryParams["access_token"] = token;
-            queryParams["username"] = "mpns1";
-            queryParams["notification_type"] = "SetReminderNotification";
-            queryParams["notifiable_type"] = "Win10x64DotNetDev";
-            queryParams["notifiable_id"] = "12345";
-            var results = client.CreateNotification(queryParams);
-            System.Console.WriteLine(string.Format("TestDeregisterDevice::Response : {0}", results));
+            MpnsClientManager.PushNotification("mpns1",
+                                               "hlgauges://srdr/Crm/NutritionClub/Customer?contactID=1234567890",
+                                               "This is a push-notification reminder to contact someone whose ID=1234567890",
+                                               "n0t1f1cat10n_1d",
+                                               "5");
         }
     }
 }
