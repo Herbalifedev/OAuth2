@@ -51,54 +51,54 @@ namespace HL.OAuth2.Client
             }
         }
 
-        public static void RegisterDevice(string username, string deviceToken, string messageService)
+        public static void RegisterDevice(string userId, string deviceToken, string messageService)
         {
             var client = Instance.Client;
             NameValueCollection queryParams = new NameValueCollection();
             queryParams["code"] = "code";
             queryParams["access_token"] = client.AccessToken;
-            queryParams["username"] = username;
+            queryParams["user_id"] = userId;
             queryParams["id"] = deviceToken;
             queryParams["msg_service"] = messageService;
             client.RegisterDevice(queryParams);
         }
 
-        public static void DeregisterDevice(string username, string deviceToken, string messageService)
+        public static void DeregisterDevice(string userId, string deviceToken, string messageService)
         {
             var client = Instance.Client;
             NameValueCollection queryParams = new NameValueCollection();
             queryParams["code"] = "code";
             queryParams["access_token"] = client.AccessToken;
-            queryParams["username"] = username;
+            queryParams["user_id"] = userId;
             queryParams["id"] = deviceToken;
             queryParams["msg_service"] = messageService;
             client.DeregisterDevice(queryParams);
         }
 
-        public static void CreateSetReminderNotification(string receiverUsername, string contactId, string contactName)
+        public static void PushNotification(string receiverUserId, string url, string message, string notification_id, string badgeCount)
         {
             var client = Instance.Client;
             NameValueCollection queryParams = new NameValueCollection();
             queryParams["code"] = "code";
             queryParams["access_token"] = client.AccessToken;
-            queryParams["username"] = receiverUsername;
-            queryParams["notification_type"] = "SetReminderNotification";
-            queryParams["notifiable_type"] = contactName;
-            queryParams["notifiable_id"] = contactId;
-            client.CreateNotification(queryParams);
-        }
-
-        public static void PushNotification(string receiverUsername, string url, string message, string notification_id, string badgeCount)
-        {
-            var client = Instance.Client;
-            NameValueCollection queryParams = new NameValueCollection();
-            queryParams["code"] = "code";
-            queryParams["access_token"] = client.AccessToken;
-            queryParams["username"] = receiverUsername;
+            queryParams["user_id"] = receiverUserId;
             queryParams["url"] = url;
             queryParams["message"] = message;
             queryParams["notification_id"] = notification_id;
             queryParams["badge"] = badgeCount;
+            client.PushNotification(queryParams);
+        }
+
+        public static void PushNotification(string receiverUserId, string url, string message, string notification_id)
+        {
+            var client = Instance.Client;
+            NameValueCollection queryParams = new NameValueCollection();
+            queryParams["code"] = "code";
+            queryParams["access_token"] = client.AccessToken;
+            queryParams["user_id"] = receiverUserId;
+            queryParams["url"] = url;
+            queryParams["message"] = message;
+            queryParams["notification_id"] = notification_id;
             client.PushNotification(queryParams);
         }
 
