@@ -4,5 +4,5 @@
 [assembly: AssemblyCopyright("Copyright (c) Constantin Titarenko, Andrew Semack and others")]
 
 // values are changed by CI
-[assembly: AssemblyVersion("0.8.0.5")] 
-[assembly: AssemblyFileVersion("0.8.0.5")]
+[assembly: AssemblyVersion("0.8.0.6")] 
+[assembly: AssemblyFileVersion("0.8.0.6")]

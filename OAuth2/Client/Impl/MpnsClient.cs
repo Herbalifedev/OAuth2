@@ -100,7 +100,7 @@ namespace HL.OAuth2.Client.Impl
 
             var para = SimpleJson.SerializeObject(new RegisterDeviceRequestInfo(
                 parameters.Get("access_token"),
-                parameters.Get("username"),
+                parameters.Get("user_id"),
                 parameters.Get("id"),
                 parameters.Get("msg_service")
             ));
@@ -117,7 +117,7 @@ namespace HL.OAuth2.Client.Impl
 
             var para = SimpleJson.SerializeObject(new DeregisterDeviceRequestInfo(
                 parameters.Get("access_token"),
-                parameters.Get("username"),
+                parameters.Get("user_id"),
                 parameters.Get("id"),
                 parameters.Get("msg_service")
             ));
@@ -135,7 +135,7 @@ namespace HL.OAuth2.Client.Impl
             var para = SimpleJson.SerializeObject(new CreateNotificationRequestInfo(
                 parameters.Get("access_token"),
                 parameters.Get("notification_type"),
-                parameters.Get("username"),
+                parameters.Get("user_id"),
                 parameters.Get("notifiable_type"),
                 parameters.Get("notifiable_id")
             ));
@@ -152,7 +152,7 @@ namespace HL.OAuth2.Client.Impl
 
             var para = SimpleJson.SerializeObject(new PushNotificationRequestInfo(
                 parameters.Get("access_token"),
-                parameters.Get("username"),
+                parameters.Get("user_id"),
                 parameters.Get("url"),
                 parameters.Get("message"),
                 parameters.Get("notification_id"),

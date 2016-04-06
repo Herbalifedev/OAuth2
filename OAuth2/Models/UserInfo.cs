@@ -84,21 +84,21 @@ namespace HL.OAuth2.Models
         public string access_token;
         public Data data;
 
-        public RegisterDeviceRequestInfo(string _access_token, string _username, string _id, string _msg_service)
+        public RegisterDeviceRequestInfo(string _access_token, string _user_id, string _id, string _msg_service)
         {
             access_token = _access_token;
-            data = new Data(_username, _id, _msg_service);
+            data = new Data(_user_id, _id, _msg_service);
         }
 
         public class Data
         {
-            public string username;
+            public string user_id;
             public string id;
             public string msg_service;
 
-            public Data(string _username, string _id, string _msg_service)
+            public Data(string _user_id, string _id, string _msg_service)
             {
-                username = _username;
+                user_id = _user_id;
                 id = _id;
                 msg_service = _msg_service;
             }
@@ -110,20 +110,20 @@ namespace HL.OAuth2.Models
         public string access_token;
         public Data data;
 
-        public DeregisterDeviceRequestInfo(string _access_token, string _username, string _id, string _msg_service)
+        public DeregisterDeviceRequestInfo(string _access_token, string _user_id, string _id, string _msg_service)
         {
             access_token = _access_token;
-            data = new Data(_username, _id, _msg_service);
+            data = new Data(_user_id, _id, _msg_service);
         }
 
         public class Data
         {
-            public string username;
+            public string user_id;
             public Device device;
 
-            public Data(string _username, string _id, string _msg_service)
+            public Data(string _user_id, string _id, string _msg_service)
             {
-                username = _username;
+                user_id = _user_id;
                 device = new Device(_id, _msg_service);
             }
 
@@ -146,23 +146,23 @@ namespace HL.OAuth2.Models
         public string access_token;
         public Data data;
 
-        public CreateNotificationRequestInfo(string _access_token, string _notification_type, string _username, string _notifiable_type, string _notifiable_id)
+        public CreateNotificationRequestInfo(string _access_token, string _notification_type, string _user_id, string _notifiable_type, string _notifiable_id)
         {
             access_token = _access_token;
-            data = new Data(_notification_type, _username, _notifiable_type, _notifiable_id);
+            data = new Data(_notification_type, _user_id, _notifiable_type, _notifiable_id);
         }
 
         public class Data
         {
             public string _type;
-            public string username;
+            public string user_id;
             public string notifiable_id;
             public string notifiable_type;
 
-            public Data(string __type, string _username, string _notifiable_type, string _notifiable_id)
+            public Data(string __type, string _user_id, string _notifiable_type, string _notifiable_id)
             {
                 _type = __type;
-                username = _username;
+                user_id = _user_id;
                 notifiable_id = _notifiable_id;
                 notifiable_type = _notifiable_type;
             }
@@ -174,23 +174,23 @@ namespace HL.OAuth2.Models
         public string access_token;
         public Data data;
 
-        public PushNotificationRequestInfo(string _access_token, string _username, string _url, string _message, string _notification_id, string _badge)
+        public PushNotificationRequestInfo(string _access_token, string _user_id, string _url, string _message, string _notification_id, string _badge)
         {
             access_token = _access_token;
-            data = new Data(_username, _url, _message, _notification_id, _badge);
+            data = new Data(_user_id, _url, _message, _notification_id, _badge);
         }
 
         public class Data
         {
-            public string username;
+            public string user_id;
             public string url;
             public string message;
             public string n10n_id;
             public string badge;
 
-            public Data(string _username, string _url, string _message, string _notification_id, string _badge)
+            public Data(string _user_id, string _url, string _message, string _notification_id, string _badge)
             {
-                username = _username;
+                user_id = _user_id;
                 url = _url;
                 message = _message;
                 n10n_id = _notification_id;
