@@ -79,6 +79,8 @@ namespace HL.OAuth2.Models
         public AvatarInfo AvatarUri { get; private set; }
     }
 
+    #region MPNS
+
     public class RegisterDeviceRequestInfo
     {
         public string access_token;
@@ -198,5 +200,59 @@ namespace HL.OAuth2.Models
             }
         }
     }
+
+    #endregion
+
+    #region MPMS
+
+    public class UploadImageRequestInfo
+    {
+        public string access_token;
+        public Data data;
+
+        public UploadImageRequestInfo(string _access_token, string _username, string _img)
+        {
+            access_token = _access_token;
+            data = new Data(_username, _img);
+        }
+
+        public class Data
+        {
+            public string username;
+            public string img;
+
+            public Data(string _username, string _img)
+            {
+                username = _username;
+                img = _img;
+            }
+        }
+    }
+
+    public class UpdateImageRequestInfo
+    {
+        public string access_token;
+        public Data data;
+
+        public UpdateImageRequestInfo(string _access_token, string _username, string _img)
+        {
+            access_token = _access_token;
+            data = new Data(_username, _img);
+        }
+
+        public class Data
+        {
+            public string username;
+            public string img;
+
+            public Data(string _username, string _img)
+            {
+                username = _username;
+                img = _img;
+            }
+        }
+    }
+
+    #endregion
 }
 

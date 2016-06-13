@@ -27,15 +27,27 @@ namespace HL.OAuth2.Client.Impl
         /// </summary>
         /// 
 
+        #region Instance variables
+
         private string _baseURI = null;
 
-        private string BaseURI
+        protected override string BaseURI
         {
             get
             {
-                return _baseURI ?? System.Configuration.ConfigurationManager.AppSettings["MpnsBaseURI"];
+                return _baseURI ?? System.Configuration.ConfigurationManager.AppSettings[BaseUriKey];
             }
         }
+
+        protected override string BaseUriKey
+        {
+            get
+            {
+                return "MpnsBaseURI";
+            }
+        }
+
+        #endregion
 
         #region API
 

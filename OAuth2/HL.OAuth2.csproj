@@ -62,6 +62,7 @@
     <Compile Include="Client\BeforeAfterRequestArgs.cs" />
     <Compile Include="Client\Impl\AsanaClient.cs" />
     <Compile Include="Client\Impl\DigitalOceanClient.cs" />
+    <Compile Include="Client\Impl\MpmsClient.cs" />
     <Compile Include="Client\Impl\MpnsClient.cs" />
     <Compile Include="Client\Impl\SalesforceClient.cs" />
     <Compile Include="Client\Impl\FacebookClient.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Client\Impl\WindowsLiveClient.cs" />
     <Compile Include="Client\Impl\XingClient.cs" />
     <Compile Include="Client\Impl\YandexClient.cs" />
+    <Compile Include="Client\MpmsClientManager.cs" />
     <Compile Include="Client\MpnsClientManager.cs" />
     <Compile Include="Client\OAuth2Client.cs" />
     <Compile Include="Client\Endpoint.cs" />
@@ -101,6 +103,8 @@
     <Compile Include="Infrastructure\SafeExtensions.cs" />
     <Compile Include="Infrastructure\StringExtensions.cs" />
     <Compile Include="Infrastructure\UriUtility.cs" />
+    <Compile Include="Models\ErrorResponse.cs" />
+    <Compile Include="Models\MpmsResponse.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -17,6 +17,8 @@ namespace HL.OAuth2.Infrastructure
             return response;
         }
 
+        #region MPNS
+
         public static IRestResponse ExecuteAndVerifyRegisterEndpoint(this IRestClient client, IRestRequest request)
         {
             var response = client.Execute(request);
@@ -60,5 +62,23 @@ namespace HL.OAuth2.Infrastructure
             }
             return response;
         }
+
+        #endregion
+
+        #region MPMS
+
+        public static IRestResponse ExecuteAndVerifyUploadImageEndpoint(this IRestClient client, IRestRequest request)
+        {
+            var response = client.Execute(request);
+            return response;
+        }
+
+        public static IRestResponse ExecuteAndVerifyUpdateImageEndpoint(this IRestClient client, IRestRequest request)
+        {
+            var response = client.Execute(request);
+            return response;
+        }
+
+        #endregion
     }
 }

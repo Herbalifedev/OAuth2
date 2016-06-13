@@ -60,6 +60,10 @@ namespace HL.OAuth2.Client
 
         private string GrantType { get; set; }
 
+        protected virtual string BaseUriKey { get; }
+
+        protected virtual string BaseURI { get; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuth2Client"/> class.
         /// </summary>
@@ -124,6 +128,7 @@ namespace HL.OAuth2.Client
         /// <param name="parameters">Callback request payload (parameters).</param>
         public string GetToken(NameValueCollection parameters)
         {
+            PerformValidation();
             if (parameters != null && parameters["grant_type"] != null)
             {
                 GrantType = parameters["grant_type"];
@@ -320,5 +325,17 @@ namespace HL.OAuth2.Client
 
             return result;
         }
+
+        #region Validation
+
+        protected void PerformValidation()
+        {
+            if (!string.IsNullOrEmpty(BaseUriKey) && string.IsNullOrEmpty(BaseURI))
+            {
+                throw new Exception(string.Format("Required {0} not defined in the settings.", BaseUriKey));
+            }
+        }
+
+        #endregion
     }
 }
