@@ -103,6 +103,7 @@
     <Compile Include="Infrastructure\SafeExtensions.cs" />
     <Compile Include="Infrastructure\StringExtensions.cs" />
     <Compile Include="Infrastructure\UriUtility.cs" />
+    <Compile Include="Models\BaseResponse.cs" />
     <Compile Include="Models\ErrorResponse.cs" />
     <Compile Include="Models\MpmsResponse.cs" />
     <Compile Include="Models\UserInfo.cs" />

@@ -28,7 +28,11 @@ namespace HL.OAuth2.Client
         {
             get
             {
-                return _mpmsClientManager ?? new MpmsClientManager();
+                if (_mpmsClientManager == null)
+                {
+                    _mpmsClientManager = new MpmsClientManager();
+                }
+                return _mpmsClientManager;
             }
         }
 
@@ -77,6 +81,16 @@ namespace HL.OAuth2.Client
             queryParams["username"] = username;
             queryParams["img"] = base64EncodedImage;
             return client.UpdateImage(queryParams);
+        }
+
+        public static IRestResponse RemoveImage(string imageId)
+        {
+            var client = Instance.Client;
+            var queryParams = new NameValueCollection();
+            queryParams["code"] = "code";
+            queryParams["access_token"] = client.AccessToken;
+            queryParams["id"] = imageId;
+            return client.RemoveImage(queryParams);
         }
 
         #endregion

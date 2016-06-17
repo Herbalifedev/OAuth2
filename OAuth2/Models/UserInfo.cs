@@ -253,6 +253,16 @@ namespace HL.OAuth2.Models
         }
     }
 
+    public class RemoveImageRequestInfo
+    {
+        public string access_token;
+
+        public RemoveImageRequestInfo(string _access_token)
+        {
+            access_token = _access_token;
+        }
+    }
+
     #endregion
 }
 

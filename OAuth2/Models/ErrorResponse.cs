@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HL.OAuth2.Models
 {
-    public class ErrorResponse
+    public class ErrorResponse : BaseResponse
     {
         public Error error;
 
