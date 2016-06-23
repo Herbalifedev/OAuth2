@@ -85,6 +85,12 @@ namespace HL.OAuth2.Infrastructure
             return response;
         }
 
+        public static IRestResponse ExecuteAndVerifyRemoveImagesEndpoint(this IRestClient client, IRestRequest request)
+        {
+            var response = client.Execute(request);
+            return response;
+        }
+
         #endregion
     }
 }

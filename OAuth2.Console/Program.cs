@@ -40,12 +40,15 @@ namespace HL.OAuth2.Console
                     if (uploadResponse != null && uploadResponse is MpmsResponse && !string.IsNullOrEmpty(((MpmsResponse)uploadResponse).data.filenameguid))
                     {
                         var updateResponse = p.TestUpdateImage(((MpmsResponse)uploadResponse).data.filenameguid);
-                        
+
                         if (updateResponse != null && updateResponse is MpmsResponse && !string.IsNullOrEmpty(((MpmsResponse)updateResponse).data.filenameguid))
                         {
-                            p.TestRemoveImage(((MpmsResponse)updateResponse).data.filenameguid);
+                            //p.TestRemoveImage(((MpmsResponse)updateResponse).data.filenameguid);
+                            p.TestRemoveImages(new string[] { "111", "222", "333", ((MpmsResponse)updateResponse).data.filenameguid });
                         }
                     }
+
+                    //p.TestRemoveImages(new string[] { "111", "222", "333" });
                 }
 
                 #endregion
@@ -166,6 +169,26 @@ namespace HL.OAuth2.Console
             {
                 // Successful request
                 var convertedObj = JsonConvert.DeserializeObject<MpmsResponse>(response.Content);
+                System.Console.WriteLine(SimpleJson.SerializeObject(convertedObj));
+                return convertedObj;
+            }
+            else if ((int)response.StatusCode == 499)
+            {
+                // Failed request. Handling error.
+                var convertedObj = JsonConvert.DeserializeObject<ErrorResponse>(response.Content);
+                System.Console.WriteLine(SimpleJson.SerializeObject(convertedObj));
+                return convertedObj;
+            }
+            return null;
+        }
+
+        public BaseResponse TestRemoveImages(string[] imageIds)
+        {
+            var response = MpmsClientManager.RemoveImages(imageIds);
+            if ((int)response.StatusCode < 400)
+            {
+                // Successful request
+                var convertedObj = JsonConvert.DeserializeObject<MpmsRemoveImagesResponse>(response.Content);
                 System.Console.WriteLine(SimpleJson.SerializeObject(convertedObj));
                 return convertedObj;
             }

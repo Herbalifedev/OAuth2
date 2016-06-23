@@ -105,6 +105,7 @@
     <Compile Include="Infrastructure\UriUtility.cs" />
     <Compile Include="Models\BaseResponse.cs" />
     <Compile Include="Models\ErrorResponse.cs" />
+    <Compile Include="Models\MpmsRemoveImagesResponse.cs" />
     <Compile Include="Models\MpmsResponse.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

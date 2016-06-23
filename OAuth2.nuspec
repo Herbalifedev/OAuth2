@@ -2,15 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>HL.OAuth2</id>
-        <version>1.0.8-alpha</version>
+        <version>1.0.9-alpha</version>
         <authors>Constantin Titarenko,Andrew Semack and others</authors>
         <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>https://github.com/Herbalifedev/OAuth2</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Allows you to perform user authentication via MPMS, MPNS, DigitalOcean, Facebook, Foursquare, GitHub, Google, Instagram, LinkedIn, MailRu, Odnoklassniki, Salesforce, Twitter, VK (Vkontakte), Windows Live, Yandex just in two method calls.</description>
         <summary>Easy to use (just 2 method calls) and well documented OAuth2/OAuth client with comprehensive list of supported providers.</summary>
-        <releaseNotes>* New MPMS response format
-* Added Remove Image API</releaseNotes>
+        <releaseNotes>* Added Remove Images API</releaseNotes>
         <copyright />
         <tags>OAuth2, OAuth, DigitalOcean, Facebook, Foursquare, GitHub, Google, Instagram, LinkedIn, MailRu, Odnoklassniki, Twitter, VK (Vkontakte), Windows Live, Yandex, MPNS, MPMS</tags>
         <serviceable>false</serviceable>

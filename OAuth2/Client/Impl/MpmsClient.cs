@@ -65,6 +65,12 @@ namespace HL.OAuth2.Client.Impl
             return QueryRemoveImage(parameters);
         }
 
+        public IRestResponse RemoveImages(NameValueCollection parameters)
+        {
+            PerformValidation();
+            return QueryRemoveImages(parameters);
+        }
+
         #endregion
 
         #region Private methods
@@ -84,6 +90,11 @@ namespace HL.OAuth2.Client.Impl
         private Endpoint RemoveImageEndpoint
         {
             get { return new Endpoint { BaseUri = BaseURI, Resource = "/mpms/images/{0}" }; }
+        }
+
+        private Endpoint RemoveImagesEndpoint
+        {
+            get { return new Endpoint { BaseUri = BaseURI, Resource = "/mpms/images" }; }
         }
 
         #endregion
@@ -135,6 +146,21 @@ namespace HL.OAuth2.Client.Impl
             request.AddParameter("application/json", para, ParameterType.RequestBody);
 
             var response = client.ExecuteAndVerifyRemoveImageEndpoint(request);
+            return response;
+        }
+
+        private IRestResponse QueryRemoveImages(NameValueCollection parameters)
+        {
+            var client = _factory.CreateClient(RemoveImagesEndpoint);
+            var request = _factory.CreateRequest(RemoveImagesEndpoint, Method.DELETE);
+
+            var para = SimpleJson.SerializeObject(new RemoveImagesRequestInfo(
+                parameters.Get("access_token"),
+                parameters.Get("image_list")
+            ));
+            request.AddParameter("application/json", para, ParameterType.RequestBody);
+
+            var response = client.ExecuteAndVerifyRemoveImagesEndpoint(request);
             return response;
         }
 

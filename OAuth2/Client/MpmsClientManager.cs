@@ -93,6 +93,16 @@ namespace HL.OAuth2.Client
             return client.RemoveImage(queryParams);
         }
 
+        public static IRestResponse RemoveImages(string[] imageIds)
+        {
+            var client = Instance.Client;
+            var queryParams = new NameValueCollection();
+            queryParams["code"] = "code";
+            queryParams["access_token"] = client.AccessToken;
+            queryParams["image_list"] = string.Join(",", imageIds);
+            return client.RemoveImages(queryParams);
+        }
+
         #endregion
 
         #region Private methods
