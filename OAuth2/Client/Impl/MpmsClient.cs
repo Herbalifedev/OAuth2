@@ -26,12 +26,18 @@ namespace HL.OAuth2.Client.Impl
         #region Instance variables
 
         private string _baseURI = null;
+        private int _imageRequestTimeout = 0;
+        private const int DEFAULT_IMAGE_REQUEST_TIMEOUT = 900 * 1000; // 900 seconds
 
         protected override string BaseURI
         {
             get
             {
-                return _baseURI ?? System.Configuration.ConfigurationManager.AppSettings[BaseUriKey];
+                if (string.IsNullOrEmpty(_baseURI))
+                {
+                    _baseURI = System.Configuration.ConfigurationManager.AppSettings[BaseUriKey];
+                }
+                return _baseURI;
             }
         }
 
@@ -40,6 +46,34 @@ namespace HL.OAuth2.Client.Impl
             get
             {
                 return "MpmsBaseURI";
+            }
+        }
+
+        private string ImageRequestTimeoutKey
+        {
+            get
+            {
+                return "MpmsImageRequestTimeout";
+            }
+        }
+
+        private int ImageRequestTimeout
+        {
+            get
+            {
+                if (_imageRequestTimeout == 0)
+                {
+                    int irt = 0;
+                    if (int.TryParse(System.Configuration.ConfigurationManager.AppSettings[ImageRequestTimeoutKey], out irt))
+                    {
+                        _imageRequestTimeout = (irt > 2000) ? DEFAULT_IMAGE_REQUEST_TIMEOUT : irt * 1000;
+                    }
+                    else
+                    {
+                        _imageRequestTimeout = DEFAULT_IMAGE_REQUEST_TIMEOUT;
+                    }
+                }
+                return _imageRequestTimeout;
             }
         }
 
@@ -104,6 +138,7 @@ namespace HL.OAuth2.Client.Impl
         private IRestResponse QueryUploadImage(NameValueCollection parameters)
         {
             var client = _factory.CreateClient(UploadImageEndpoint);
+            client.Timeout = ImageRequestTimeout;
             var request = _factory.CreateRequest(UploadImageEndpoint, Method.POST);
 
             var para = SimpleJson.SerializeObject(new UploadImageRequestInfo(
@@ -122,6 +157,7 @@ namespace HL.OAuth2.Client.Impl
             var updatedEndpoint = UpdateImageEndpoint;
             updatedEndpoint.Resource = string.Format(updatedEndpoint.Resource, parameters.Get("id"));
             var client = _factory.CreateClient(updatedEndpoint);
+            client.Timeout = ImageRequestTimeout;
             var request = _factory.CreateRequest(updatedEndpoint, Method.PUT);
 
             var para = SimpleJson.SerializeObject(new UpdateImageRequestInfo(
@@ -140,6 +176,7 @@ namespace HL.OAuth2.Client.Impl
             var updatedEndpoint = RemoveImageEndpoint;
             updatedEndpoint.Resource = string.Format(updatedEndpoint.Resource, parameters.Get("id"));
             var client = _factory.CreateClient(updatedEndpoint);
+            client.Timeout = ImageRequestTimeout;
             var request = _factory.CreateRequest(updatedEndpoint, Method.DELETE);
 
             var para = SimpleJson.SerializeObject(new RemoveImageRequestInfo(parameters.Get("access_token")));
@@ -152,6 +189,7 @@ namespace HL.OAuth2.Client.Impl
         private IRestResponse QueryRemoveImages(NameValueCollection parameters)
         {
             var client = _factory.CreateClient(RemoveImagesEndpoint);
+            client.Timeout = ImageRequestTimeout;
             var request = _factory.CreateRequest(RemoveImagesEndpoint, Method.DELETE);
 
             var para = SimpleJson.SerializeObject(new RemoveImagesRequestInfo(
