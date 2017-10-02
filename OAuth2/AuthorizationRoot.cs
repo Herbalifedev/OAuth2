@@ -69,7 +69,22 @@ namespace HL.OAuth2
         /// </summary>        
         protected virtual IEnumerable<Type> GetClientTypes()
         {
-          return AppDomain.CurrentDomain.GetAssemblies().SelectMany(s => s.GetTypes()).Where(p => typeof(IClient).IsAssignableFrom(p));
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var  typeList = new List<Type>();
+            foreach (var assembly in assemblies)
+            {
+                try
+                {
+                    var types = assembly.GetTypes();
+                    var iclientTypes = types.Where(p => typeof(IClient).IsAssignableFrom(p));
+                    typeList.AddRange(iclientTypes);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"error loading types from assembly {assembly.FullName}");
+                }
+            }
+            return typeList;
         }
     }
 }
